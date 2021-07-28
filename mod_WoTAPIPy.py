@@ -26,22 +26,22 @@ from gui.shared import event_dispatcher as shared_event_dispatcher
 old_showDashboardView = shared_event_dispatcher.showDashboardView
 
 def new_showDashboardView():
-  _logger.info('overriding showDashboardView')
+  _logger.info('Overriding showDashboardView')
   
-  _logger.info('calling webtokentest')
-  webtokentest()  
+  _logger.info('Calling pullToken')
+  pullToken()  
   
-  _logger.info('calling base showDashboardView')
+  _logger.info('Calling base showDashboardView')
   old_showDashboardView()
   
-_logger.info('overriding event_dispatcher.showDashboardView')
+_logger.info('Overriding event_dispatcher.showDashboardView')
 shared_event_dispatcher.showDashboardView = new_showDashboardView
 
 @adisp.process
-def webtokentest():
-  _logger.info('webtokentest')
+def pullToken():
+  _logger.info('AccessTokenModule')
   try:
-    from Test_Submodule import sniffAccessToken
+    from AccessTokenModule import sniffAccessToken
 
     def callback(productInfo):
       _logger.info(productInfo)

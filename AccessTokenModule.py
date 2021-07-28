@@ -16,7 +16,7 @@ from items.components import path_builder
 from helpers.server_settings import ServerSettings
 
 _logger = logging.getLogger(__name__)
-_logger.info('Test Submodule')
+_logger.info('AccessTokenModule')
 
 from adisp import async, process
 from gui.shared.utils import decorators
@@ -34,7 +34,7 @@ def setEnv(token):
     return
 
 @async
-@decorators.process('loadingData')
+@decorators.process('Loading data')
 @dependency.replace_none_kwargs(webCtrl=IWebController)
 
 def sniffAccessToken(productID, callback=None, webCtrl=None):
